@@ -1,6 +1,5 @@
 import Login from './Login';
-// import Profile from './Profile';
-import Dashboard from './Dashboard';
+import Upload from './Upload';
 import Signup from './Signup';
 
-export { Login, Dashboard, Signup };
+export { Login, Upload, Signup };

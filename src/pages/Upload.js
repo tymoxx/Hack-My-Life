@@ -17,8 +17,11 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
 
+
 const styles = theme => ({
     main: {
+        textAlign: 'center',
+        backgroundColor: 'yellow',
         width: 'auto',
         display: 'block', // Fix IE 11 issue.
         marginLeft: theme.spacing.unit * 3,
@@ -32,11 +35,11 @@ const styles = theme => ({
     fab: {
         margin: theme.spacing.unit * 2,
     },
-    absolute: {
-        position: 'absolute',
-        bottom: theme.spacing.unit * 2,
-        right: theme.spacing.unit * 3,
-    },
+    // absolute: {
+    //     position: 'absolute',
+    //     bottom: theme.spacing.unit * 2,
+    //     right: theme.spacing.unit * 3,
+    // },
     input: {
         display: 'none',
     },
@@ -49,7 +52,7 @@ const styles = theme => ({
     },
 });
 
-class Dashboard extends Component {
+class Upload extends Component {
 
     state = {
         title: '',
@@ -84,10 +87,21 @@ class Dashboard extends Component {
         return (
             <main className={classes.main}>
 
+                <Typography
+                    variant="h4"
+                    gutterBottom
+                    align='center'
+                >
+                    Share your lifehack with the world
+                </Typography>
+
                 <Paper className={classes.paper}>
                     <CardContent>
 
+
                         <form className={classes.container} noValidate autoComplete="off">
+
+
                             {/* TITLE */}
                             <TextField
                                 id="outlined-name"
@@ -111,12 +125,52 @@ class Dashboard extends Component {
                             />
                             <label htmlFor="contained-button-file">
                                 <Tooltip title="Upload image" aria-label="Add">
-                                    <Fab component="span" color="primary" className={classes.fab}
+                                    <Fab centered component="span" color="primary" className={classes.fab } size='large'
                                     >
                                         <AddIcon/>
                                     </Fab>
                                 </Tooltip>
                             </label>
+
+                            <Input
+                                defaultValue="Hello world"
+                                className={classes.input}
+                                inputProps={{
+                                    'aria-label': 'Description',
+                                }}
+                            />
+
+                            <Input
+                                defaultValue="Hello world"
+                                className={classes.input}
+                                inputProps={{
+                                    'aria-label': 'Description',
+                                }}
+                            />
+
+                            <Input
+                                defaultValue="Hello world"
+                                className={classes.input}
+                                inputProps={{
+                                    'aria-label': 'Description',
+                                }}
+                            />
+
+                            <Input
+                                defaultValue="Hello world"
+                                className={classes.input}
+                                inputProps={{
+                                    'aria-label': 'Description',
+                                }}
+                            />
+
+                            <Input
+                                defaultValue="Hello world"
+                                className={classes.input}
+                                inputProps={{
+                                    'aria-label': 'Description',
+                                }}
+                            />
                         </form>
                     </CardContent>
                 </Paper>
@@ -125,4 +179,4 @@ class Dashboard extends Component {
     }
 }
 
-export default withStyles(styles)(Dashboard);
+export default withStyles(styles)(Upload);
