@@ -9,7 +9,7 @@ class App extends Component {
 
 
     render () {
-        const isAuthenticated = 0;
+        const isAuthenticated = 1;
 
         // const { isAuthenticated, isInitialized, listenPosts } = this.props;
 

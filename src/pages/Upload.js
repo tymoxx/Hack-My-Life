@@ -15,41 +15,39 @@ import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
-import Input from "@material-ui/core/Input";
+import Input from '@material-ui/core/Input';
+import Grid from "@material-ui/core/Grid";
 
 
 const styles = theme => ({
-    main: {
-        textAlign: 'center',
-        backgroundColor: 'yellow',
-        width: 'auto',
-        display: 'block', // Fix IE 11 issue.
-        marginLeft: theme.spacing.unit * 3,
-        marginRight: theme.spacing.unit * 3,
-        [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
-            width: 400,
-            marginLeft: 'auto',
-            marginRight: 'auto',
-        },
-    },
-    fab: {
-        margin: theme.spacing.unit * 2,
-    },
-    // absolute: {
-    //     position: 'absolute',
-    //     bottom: theme.spacing.unit * 2,
-    //     right: theme.spacing.unit * 3,
-    // },
-    input: {
-        display: 'none',
-    },
     paper: {
         marginTop: theme.spacing.unit * 16,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
+        textAlign: 'center'
     },
+    container: {},
+    fab: {
+        margin: theme.spacing.unit * 2,
+    },
+    inputFile: {
+        display: 'none',
+    },
+    tagsGroup: {
+        display: 'flex',
+        // flexWrap: 'wrap',
+    },
+    FormControlTag: {
+        maxWidth: '70px',
+        // marginLeft: theme.spacing.unit,
+        marginRight: theme.spacing.unit / 2,
+    },
+    submit: {
+        marginTop: '30px'
+    }
+
 });
 
 class Upload extends Component {
@@ -85,96 +83,125 @@ class Upload extends Component {
     render() {
         const {classes} = this.props;
         return (
-            <main className={classes.main}>
 
-                <Typography
-                    variant="h4"
-                    gutterBottom
-                    align='center'
-                >
-                    Share your lifehack with the world
-                </Typography>
+            <Grid
+                align-items-xs-center
+                container
+                spacing={0}
+                direction="column"
+                alignItems="center"
+                justify="center"
+                style={{minHeight: '100vh'}}
+            >
+                <Grid item xs={12} sm={8} md={4} align-items-xs-center>
+                    <Paper className={classes.paper}>
+                        <CardContent>
+                            <form className={classes.container} noValidate autoComplete="off">
 
-                <Paper className={classes.paper}>
-                    <CardContent>
+                                <Typography
+                                    variant="h5"
+                                    gutterBottom
+                                    align='center'
+                                >
+                                    Share your lifehack with the world
+                                </Typography>
 
+                                {/* Title Input*/}
+                                <TextField
+                                    id="outlined-name"
+                                    label="Title"
+                                    className={classes.textField}
+                                    value={this.state.name}
+                                    onChange={this.handleChange('title')}
+                                    margin="normal"
+                                    variant="outlined"
+                                    fullWidth
+                                />
 
-                        <form className={classes.container} noValidate autoComplete="off">
+                                <br/>
+                                <br/>
 
+                                {/* IMAGE UPLOAD*/}
+                                <input
+                                    accept="image/*"
+                                    className={classes.inputFile}
+                                    id="contained-button-file"
+                                    type="file"
+                                    onChange={this.handleSelectFile}
+                                />
+                                <label htmlFor="contained-button-file">
+                                    <Tooltip title="Upload image" aria-label="Add">
+                                        <Fab centered component="span" color="primary" className={classes.fab}
+                                             size='large'
+                                        >
+                                            <AddIcon/>
+                                        </Fab>
+                                    </Tooltip>
+                                </label>
 
-                            {/* TITLE */}
-                            <TextField
-                                id="outlined-name"
-                                label="Title"
-                                className={classes.textField}
-                                value={this.state.name}
-                                onChange={this.handleChange('title')}
-                                margin="normal"
-                                variant="outlined"
-                            />
+                                <br/>
 
-                            <br />
-
-                            {/* IMAGE UPLOAD*/}
-                            <input
-                                accept="image/*"
-                                className={classes.input}
-                                id="contained-button-file"
-                                type="file"
-                                onChange={this.handleSelectFile}
-                            />
-                            <label htmlFor="contained-button-file">
-                                <Tooltip title="Upload image" aria-label="Add">
-                                    <Fab centered component="span" color="primary" className={classes.fab } size='large'
-                                    >
-                                        <AddIcon/>
-                                    </Fab>
-                                </Tooltip>
-                            </label>
-
-                            <Input
-                                defaultValue="Hello world"
-                                className={classes.input}
-                                inputProps={{
-                                    'aria-label': 'Description',
-                                }}
-                            />
-
-                            <Input
-                                defaultValue="Hello world"
-                                className={classes.input}
-                                inputProps={{
-                                    'aria-label': 'Description',
-                                }}
-                            />
-
-                            <Input
-                                defaultValue="Hello world"
-                                className={classes.input}
-                                inputProps={{
-                                    'aria-label': 'Description',
-                                }}
-                            />
-
-                            <Input
-                                defaultValue="Hello world"
-                                className={classes.input}
-                                inputProps={{
-                                    'aria-label': 'Description',
-                                }}
-                            />
-
-                            <Input
-                                defaultValue="Hello world"
-                                className={classes.input}
-                                inputProps={{
-                                    'aria-label': 'Description',
-                                }}
-                            />
-                        </form>
-                    </CardContent>
-                </Paper>
-            </main>
+                                <div className={classes.tagsGroup}>
+                                    <FormControl margin="normal" className={classes.FormControlTag} required>
+                                        <InputLabel htmlFor="tag1">Tag 1</InputLabel>
+                                        <Input
+                                            id='tag1'
+                                            inputProps={{
+                                                'aria-label': 'Description',
+                                            }}
+                                        />
+                                    </FormControl>
+                                    <FormControl margin="normal" className={classes.FormControlTag} required>
+                                        <InputLabel htmlFor="tag1">Tag 2</InputLabel>
+                                        <Input
+                                            id='tag1'
+                                            inputProps={{
+                                                'aria-label': 'Description',
+                                            }}
+                                        />
+                                    </FormControl>
+                                    <FormControl margin="normal" className={classes.FormControlTag} required>
+                                        <InputLabel htmlFor="tag1">Tag 3</InputLabel>
+                                        <Input
+                                            id='tag1'
+                                            inputProps={{
+                                                'aria-label': 'Description',
+                                            }}
+                                        />
+                                    </FormControl>
+                                    <FormControl margin="normal" className={classes.FormControlTag} required>
+                                        <InputLabel htmlFor="tag1">Tag 4</InputLabel>
+                                        <Input
+                                            id='tag1'
+                                            inputProps={{
+                                                'aria-label': 'Description',
+                                            }}
+                                        />
+                                    </FormControl>
+                                    <FormControl margin="normal" className={classes.FormControlTag} required>
+                                        <InputLabel htmlFor="tag1">Tag 5</InputLabel>
+                                        <Input
+                                            id='tag1'
+                                            inputProps={{
+                                                'aria-label': 'Description',
+                                            }}
+                                        />
+                                    </FormControl>
+                                </div>
+                                <Button
+                                    type="submit"
+                                    fullWidth
+                                    variant="contained"
+                                    color="primary"
+                                    className={classes.submit}
+                                >
+                                    Upload
+                                </Button>
+                            </form>
+                        </CardContent>
+                    </Paper>
+                </Grid>
+            </Grid>
         );
     }
 }
