@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 // Pages
-import { Login, Signup } from '../pages';
+import { Login, Register } from '../pages';
 
 // Instruments
 import { book } from './book';
@@ -13,7 +13,7 @@ export default class Public extends Component {
         return (
             <Switch>
                 <Route component = { Login } path = { book.login } />
-                <Route component = { Signup } path = { book.signUp } />
+                <Route component = { Register } path = { book.register } />
                 <Redirect to = { book.login } />
             </Switch>
         );

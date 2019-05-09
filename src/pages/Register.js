@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControl from '@material-ui/core/FormControl';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import logo from '../img/logo.svg'
@@ -62,13 +59,14 @@ const styles = theme => ({
 });
 
 
-class Login extends Component {
+class Register extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            email: 'test@test.com',
-            password: '123456'
+            email: 'test1@test.com',
+            password: '123',
+            confirm: '123'
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -82,7 +80,9 @@ class Login extends Component {
     handleSubmit = async (e) => {
         e.preventDefault();
 
-        let response = await api.login();
+        const {email, password} = this.state;
+
+        let response = await api.register(email, password);
         console.log(response);
 
     };
@@ -101,8 +101,8 @@ class Login extends Component {
                     <div className={classes.logo} >
                         <img src={logo} className={classes.logoInner} alt="logo"/>
                     </div>
-                    <Typography component="h1" variant="h5">
-                        Sign in
+                    <Typography component="h2" variant="h5">
+                        Sign up
                     </Typography>
                     <form className={classes.form} onSubmit={this.handleSubmit}>
                         <FormControl margin="normal" required fullWidth>
@@ -116,14 +116,17 @@ class Login extends Component {
                             <Input name="password" type="password" id="password" autoComplete="current-password"
                                    onChange={this.handleChange('password')} value={this.state.password}/>
                         </FormControl>
+                        <FormControl margin="normal" required fullWidth>
+                            <InputLabel htmlFor="password">Confirm Password</InputLabel>
+                            <Input name="confirm" type="password" id="password" autoComplete="current-password"
+                                   onChange={this.handleChange('confirm')} value={this.state.confirm}/>
+                        </FormControl>
                         <Button
                             type="submit"
-                            // fullWidth
-                            // variant="contained"
                             color="primary"
                             className={classes.submit}
                         >
-                            Sign in
+                            Sign up
                         </Button>
                     </form>
                 </Paper>
@@ -132,8 +135,9 @@ class Login extends Component {
     }
 }
 
-Login.propTypes = {
+Register.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Login);
+
+export default withStyles(styles)(Register);

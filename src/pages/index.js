@@ -1,5 +1,5 @@
 import Login from './Login';
 import Upload from './Upload';
-import Signup from './Signup';
+import Register from './Register';
 
-export { Login, Upload, Signup };
+export { Login, Upload, Register };

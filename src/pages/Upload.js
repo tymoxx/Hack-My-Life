@@ -21,7 +21,7 @@ import Grid from "@material-ui/core/Grid";
 
 const styles = theme => ({
     paper: {
-        marginTop: theme.spacing.unit * 16,
+        // marginTop: theme.spacing.unit * 2,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -131,7 +131,9 @@ class Upload extends Component {
                                 />
                                 <label htmlFor="contained-button-file">
                                     <Tooltip title="Upload image" aria-label="Add">
-                                        <Fab centered component="span" color="primary" className={classes.fab}
+                                        <Fab centered component="span"
+                                             color="primary"
+                                             className={classes.fab}
                                              size='large'
                                         >
                                             <AddIcon/>
