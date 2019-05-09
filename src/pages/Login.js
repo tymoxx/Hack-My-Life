@@ -14,6 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 import {api} from '../instruments/api';
 import deepPurple from '@material-ui/core/colors/deepPurple';
+import {NotificationManager} from 'react-notifications';
 
 
 const primary = deepPurple[700];
@@ -82,8 +83,11 @@ class Login extends Component {
     handleSubmit = async (e) => {
         e.preventDefault();
 
-        let response = await api.login();
-        console.log(response);
+        NotificationManager.error('Info message');
+        //
+        //
+        // let response = await api.login();
+        // console.log(response);
 
     };
 
@@ -102,7 +106,7 @@ class Login extends Component {
                         <img src={logo} className={classes.logoInner} alt="logo"/>
                     </div>
                     <Typography component="h1" variant="h5">
-                        Sign in
+                        Login
                     </Typography>
                     <form className={classes.form} onSubmit={this.handleSubmit}>
                         <FormControl margin="normal" required fullWidth>
@@ -123,7 +127,7 @@ class Login extends Component {
                             color="primary"
                             className={classes.submit}
                         >
-                            Sign in
+                            Submit
                         </Button>
                     </form>
                 </Paper>

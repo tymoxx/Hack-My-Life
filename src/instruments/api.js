@@ -17,13 +17,17 @@ export const api = {
         });
     },
 
-    async login() {
+    async login(email, password) {
         return await axios({
             method:  'post',
             url: `${MAIN_URI}/login`,
             headers: {
                 'Content-Type': 'application/json',
             },
+            data: {
+                email: email,
+                pass: password
+            }
         });
     },
 

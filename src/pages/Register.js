@@ -11,6 +11,9 @@ import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 import {api} from '../instruments/api';
 import deepPurple from '@material-ui/core/colors/deepPurple';
+import history from '../init/history'
+import {book} from '../nav/book'
+import {NotificationManager} from 'react-notifications';
 
 
 const primary = deepPurple[700];
@@ -82,8 +85,11 @@ class Register extends Component {
 
         const {email, password} = this.state;
 
-        let response = await api.register(email, password);
-        console.log(response);
+        let response = await api.register;
+
+
+        history.replace(book.login);
+
 
     };
 
@@ -102,7 +108,7 @@ class Register extends Component {
                         <img src={logo} className={classes.logoInner} alt="logo"/>
                     </div>
                     <Typography component="h2" variant="h5">
-                        Sign up
+                        Register
                     </Typography>
                     <form className={classes.form} onSubmit={this.handleSubmit}>
                         <FormControl margin="normal" required fullWidth>
@@ -126,7 +132,7 @@ class Register extends Component {
                             color="primary"
                             className={classes.submit}
                         >
-                            Sign up
+                            Submit
                         </Button>
                     </form>
                 </Paper>
