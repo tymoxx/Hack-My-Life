@@ -85,11 +85,14 @@ class Register extends Component {
 
         const {email, password} = this.state;
 
-        let response = await api.register;
+        try {
+            const response = await api.register(email, password);
+            NotificationManager.success('Successfully registered!');
+            await history.replace(book.login);
 
-
-        history.replace(book.login);
-
+        } catch (err) {
+            NotificationManager.error('Something went wrong');
+        }
 
     };
 

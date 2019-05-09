@@ -21,7 +21,7 @@ class App extends Component {
         // }
 
         return <>
-            isAuthenticated ? <Private /> : <Public />;
+            { isAuthenticated ? <Private /> : <Public /> }
             <NotificationContainer/>
         </>
     }

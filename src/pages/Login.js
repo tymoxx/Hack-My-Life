@@ -83,12 +83,7 @@ class Login extends Component {
     handleSubmit = async (e) => {
         e.preventDefault();
 
-        NotificationManager.error('Info message');
-        //
-        //
-        // let response = await api.login();
-        // console.log(response);
-
+        NotificationManager.info('Info message');
     };
 
     render() {
