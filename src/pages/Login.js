@@ -9,10 +9,10 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import logo from '../img/logo.svg'
-// import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
+import { api } from '../instruments/api';
 
 const styles = theme => ({
     main: {
@@ -49,6 +49,29 @@ const styles = theme => ({
 
 class SignIn extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: 'test@test.com',
+            password: '123456'
+        };
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange = name => event => {
+        this.setState({
+            [name]: event.target.value,
+        });
+    };
+
+    handleSubmit = async (e) => {
+        e.preventDefault();
+
+        let response  =  await api.login();
+        console.log(response);
+
+    };
+
     render () {
 
         const { classes } = this.props;
@@ -57,21 +80,19 @@ class SignIn extends Component {
             <main className={classes.main}>
                 <CssBaseline/>
                 <Paper className={classes.paper}>
-                    {/*<Avatar className={classes.avatar}>*/}
                     <img src={logo} className={classes.logo} alt="logo"/>
-                    {/*<LockOutlinedIcon />*/}
-                    {/*</Avatar>*/}
                     <Typography component="h1" variant="h5">
                         Sign in
                     </Typography>
-                    <form className={classes.form} onSubmit={() => console.log('submitted')}>
+                    <form className={classes.form} onSubmit={this.handleSubmit}>
                         <FormControl margin="normal" required fullWidth>
                             <InputLabel htmlFor="email">Email Address</InputLabel>
-                            <Input id="email" name="email" autoComplete="email" autoFocus/>
+                            <Input id="email" name="email" autoComplete="email" autoFocus onChange={this.handleChange('email')} value={this.state.email}
+                            />
                         </FormControl>
                         <FormControl margin="normal" required fullWidth>
                             <InputLabel htmlFor="password">Password</InputLabel>
-                            <Input name="password" type="password" id="password" autoComplete="current-password"/>
+                            <Input name="password" type="password" id="password" autoComplete="current-password" onChange={this.handleChange('password')} value={this.state.password}/>
                         </FormControl>
                         <Button
                             type="submit"
