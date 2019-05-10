@@ -88,7 +88,7 @@ class Register extends Component {
         const {email, password} = this.state;
 
         try {
-            const response = await api.register(email, password);
+            // const response = await api.register(email, password);
             NotificationManager.success('Successfully registered!');
             await history.replace(book.login);
 
@@ -109,7 +109,7 @@ class Register extends Component {
                     <Typography component="h1" variant="h5" className={classes.headline}>
                         Hack My Life
                     </Typography>
-                    <div className={classes.logo} >
+                    <div className={classes.logo}>
                         <img src={logo} className={classes.logoInner} alt="logo"/>
                     </div>
                     <Typography component="h2" variant="h5">

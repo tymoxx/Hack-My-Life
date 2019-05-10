@@ -17,30 +17,15 @@ class App extends Component {
 
 
     componentDidMount() {
-
-        //TODO: move from here
-
-        let authed = localStorage.getItem('authed');
-
-        console.log('----', this.state.isAuthenticated);
-        console.log('----', authed);
-
-        this.setState({isAuthenticated: authed});
-
     }
 
 
     render() {
 
-        // const { isAuthenticated, isInitialized, listenPosts } = this.props;
-
-        // if (!isInitialized) {
-        //     return <Loading />;
-        // }
-
+        let authed = localStorage.getItem('authed');
 
         return <>
-            {this.state.isAuthenticated ? <Private/> : <Public/>}
+            {authed ? <Private/> : <Public/>}
             <NotificationContainer/>
         </>
     }

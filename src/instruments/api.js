@@ -31,4 +31,22 @@ export const api = {
         });
     },
 
+    async submit(title, tag1, tag2, tag3, tag4, tag5) {
+        return await axios({
+            method:  'post',
+            url: `${MAIN_URI}/submit`,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            data: {
+                title: title,
+                tag1: tag1,
+                tag2: tag2,
+                tag3: tag3,
+                tag4: tag4,
+                tag5: tag5,
+            }
+        });
+    },
+
 };
