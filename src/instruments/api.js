@@ -24,10 +24,10 @@ export const api = {
             headers: {
                 'Content-Type': 'application/json',
             },
-            data: {
-                email: email,
-                pass: password
-            }
+            // data: {
+            //     email: email,
+            //     pass: password
+            // }
         });
     },
 

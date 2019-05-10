@@ -9,7 +9,8 @@ export default class Private extends Component {
     render () {
         return (
             <Switch>
-                <Route component = { Upload } path = { book.dashboard } />
+                <Route component = { Upload } path = { book.upload
+                } />
                 <Redirect to = { book.upload } />
             </Switch>
         );

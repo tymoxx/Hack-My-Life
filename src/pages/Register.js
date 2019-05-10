@@ -14,6 +14,7 @@ import deepPurple from '@material-ui/core/colors/deepPurple';
 import history from '../init/history'
 import {book} from '../nav/book'
 import {NotificationManager} from 'react-notifications';
+import {Link} from "react-router-dom";
 
 
 const primary = deepPurple[700];
@@ -58,6 +59,7 @@ const styles = theme => ({
     },
     submit: {
         marginTop: theme.spacing.unit * 3,
+        marginBottom: theme.spacing.unit * 3,
     },
 });
 
@@ -137,6 +139,10 @@ class Register extends Component {
                         >
                             Submit
                         </Button>
+
+                        <Typography variant="body2" >
+                            Have an account? Go to <Link to={book.login}>login</Link>
+                        </Typography>
                     </form>
                 </Paper>
             </main>

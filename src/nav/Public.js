@@ -16,6 +16,7 @@ export default class Public extends Component {
                 <Route component = { Register } path = { book.register } />
                 <Redirect to = { book.login } />
             </Switch>
-        );
+
+    );
     }
 }

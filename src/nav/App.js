@@ -1,18 +1,36 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Private from "./Private";
 import Public from "./Public";
-import { withRouter } from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import 'react-notifications/lib/notifications.css';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import {NotificationContainer} from 'react-notifications';
 
 
 class App extends Component {
-    componentDidMount () {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isAuthenticated: 'false',
+        };
     }
 
 
-    render () {
-        const isAuthenticated = 0;
+    componentDidMount() {
+
+        //TODO: move from here
+
+        let authed = localStorage.getItem('authed');
+
+        console.log('----', this.state.isAuthenticated);
+        console.log('----', authed);
+
+        this.setState({isAuthenticated: authed});
+
+    }
+
+
+    render() {
 
         // const { isAuthenticated, isInitialized, listenPosts } = this.props;
 
@@ -20,8 +38,9 @@ class App extends Component {
         //     return <Loading />;
         // }
 
+
         return <>
-            { isAuthenticated ? <Private /> : <Public /> }
+            {this.state.isAuthenticated ? <Private/> : <Public/>}
             <NotificationContainer/>
         </>
     }

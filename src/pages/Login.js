@@ -15,6 +15,9 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import {api} from '../instruments/api';
 import deepPurple from '@material-ui/core/colors/deepPurple';
 import {NotificationManager} from 'react-notifications';
+import {Link} from "react-router-dom";
+import {book} from "../nav/book";
+import history from "../init/history";
 
 
 const primary = deepPurple[700];
@@ -59,6 +62,7 @@ const styles = theme => ({
     },
     submit: {
         marginTop: theme.spacing.unit * 3,
+        marginBottom: theme.spacing.unit * 3,
     },
 });
 
@@ -80,10 +84,26 @@ class Login extends Component {
         });
     };
 
+
     handleSubmit = async (e) => {
         e.preventDefault();
 
-        NotificationManager.info('Info message');
+        const {email, password} = this.state;
+
+        try {
+            const response = await api.login(email, password);
+            NotificationManager.success('Welcome to Hack My Life');
+            await localStorage.setItem('authed', true)
+
+            await history.replace(book.upload);
+
+
+        } catch (err) {
+            console.log(err);
+            
+            NotificationManager.error('Something went wrong');
+        }
+
     };
 
     render() {
@@ -97,7 +117,7 @@ class Login extends Component {
                     <Typography component="h1" variant="h5" className={classes.headline}>
                         Hack My Life
                     </Typography>
-                    <div className={classes.logo} >
+                    <div className={classes.logo}>
                         <img src={logo} className={classes.logoInner} alt="logo"/>
                     </div>
                     <Typography component="h1" variant="h5">
@@ -124,6 +144,9 @@ class Login extends Component {
                         >
                             Submit
                         </Button>
+                        <Typography variant="body2" >
+                            Not Registered yet? Go to <Link to={book.register}>registration</Link>
+                        </Typography>
                     </form>
                 </Paper>
             </main>
