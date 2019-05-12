@@ -12,6 +12,8 @@ We strongly believe that for any problem there is a solution. Therefore, if you 
 
 With use of AI visual recognition, solution we built will suggest life hacks for things around you. All you have to do is to take a picture of some object and application will give you suggestion what kind of life hack you can do with it.
 
+![](https://github.com/gopolar/Hack-My-Life/blob/master/Assets/preview.png)
+
 Our database of life hacks is accessible via web panel where everybody can register and add their own life hacks. More life hacks we collect there - better suggestions we are able to give and more problems we are able to solve.
 
 ## Architecture overview
