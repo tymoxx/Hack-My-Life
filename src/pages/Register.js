@@ -47,7 +47,7 @@ const styles = theme => ({
         color: 'white'
     },
     paper: {
-        marginTop: theme.spacing.unit * 16,
+        marginTop: theme.spacing.unit * 8,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
