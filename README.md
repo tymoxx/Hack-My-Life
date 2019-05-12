@@ -22,15 +22,8 @@ Our solution consist of two parts: web and mobile application. Web application a
 
 ## Hack My Life Preview
 
-Via web users are able to register and login.
+Via web users are able to register and login. Adding new life hack is simple, users define image, title and add 5 tags that can be associated with this life hack.
 
-![](https://github.com/gopolar/Hack-My-Life/blob/master/Assets/1.png)
+Via mobile application users can recognise object with use of AI and application will find available life hack that matches that object. Feel free to check out following Youtube video to see it in action (click on image to open Youtube):
 
-Adding new life hack is simple, users define image, title and add 5 tags that can be associated with this life hack.
-
-![](https://github.com/gopolar/Hack-My-Life/blob/master/Assets/2.png)
-
-Via mobile application users can recognise object with use of AI and application will find available life hack that matches that object.
-
-![](https://github.com/gopolar/Hack-My-Life/blob/master/Assets/3.png)
-
+[![Youtube Video](https://img.youtube.com/vi/5lHLH_O_3w8/0.jpg)](https://www.youtube.com/watch?v=5lHLH_O_3w8 "Youtube Video of Hack My Life application")
