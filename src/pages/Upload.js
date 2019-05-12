@@ -74,27 +74,23 @@ class Upload extends Component {
         const fd = new FormData();
         fd.append('image', this.state.file, this.state.file.name, fd, {
             onUploadProgress: progressEvent => {
-                console.log('progress...:' + progressEvent.loaded);
-
+                // console.log('progress...:' + progressEvent.loaded);
             }
         });
 
         axios.post('https://api.imgur.com/3/image').then(res => {
-            console.log('res:', res);
+            // console.log('res:', res);
         });
     };
 
     handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log('submitted');
-        
-
         const {title, tag1, tag2, tag3, tag4, tag5} = this.state;
 
         try {
             const response = await api.submit(title, tag1, tag2, tag3, tag4, tag5);
-            NotificationManager.success('Successfully registered!');
+            NotificationManager.success('Succesfully submitted');
             await history.replace(book.login);
 
         } catch (err) {
@@ -105,9 +101,6 @@ class Upload extends Component {
 
     render() {
         const {classes} = this.props;
-
-        console.log('--', this.state);
-
 
         return (
 
