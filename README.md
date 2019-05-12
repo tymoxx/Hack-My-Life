@@ -29,6 +29,6 @@ Via the web, users are able to register and login. Adding a new life hack is sim
 ![](https://github.com/gopolar/Hack-My-Life/blob/master/Assets/hack-my-life-admin.jpg)
 
 
-Via the mobile, application users can recognise an object with the use of AI. Application will find available life hack that matches that object. Feel free to check out following Youtube video to see it in action (click on image to open Youtube):
+Via the mobile, application users can recognise an object with the use of AI. Application will find available life hack that matches that object. Feel free to check out following Youtube video to see it in action (click on image to open Youtube)⬇️⬇️⬇️: 
 
 [![Youtube Video](https://img.youtube.com/vi/5lHLH_O_3w8/0.jpg)](https://www.youtube.com/watch?v=5lHLH_O_3w8 "Youtube Video of Hack My Life application")
