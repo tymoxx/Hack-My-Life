@@ -1,68 +1,36 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://github.com/gopolar/Hack-My-Life
 
-## Available Scripts
+# Hack My Life
 
-In the project directory, you can run:
+## About
 
-### `npm start`
+This project was built for the [Junction May Online Challenge](https://www.reddit.com/r/JunctionCommunity/comments/bld5f1/may_online_challenge_life_hack/). Goal of the challenge was to build an life hack application.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Description
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+We strongly believe that for any problem there is a solution. Therefore, if you know the problem you'll be able to find solution for it. But what if you are not aware of the problem? What if you don't know some things can be hacked in order to make you life easier? Why to solve only one problem (life hack), when we could solve them all? ;)
 
-### `npm test`
+With use of AI visual recognition, solution we built will suggest life hacks for things around you. All you have to do is to take a picture of some object and application will give you suggestion what kind of life hack you can do with it.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Our database of life hacks is accessible via web panel where everybody can register and add their own life hacks. More life hacks we collect there - better suggestions we are able to give and more problems we are able to solve.
 
-### `npm run build`
+## Architecture overview
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![](https://github.com/gopolar/Hack-My-Life/blob/master/Assets/hackmylife-architecture.png)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Our solution consist of two parts: web and mobile application. Web application allows users to register and login into the panel where they are able to add new life hacks. Life hack is defined with image, title and tags. Backend is built with use of the AWS technologies, AWS Gateway directs requests to appropriate Lambda service, data is stored in RDS MySQL database and images are uploaded to S3 bucket. Mobile application, with use of AI, makes the image recognition, sends request to the backend with recognised terms and displays the result.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Hack My Life Preview
 
-### `npm run eject`
+Via web users are able to register and login.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![](https://github.com/gopolar/Hack-My-Life/blob/master/Assets/1.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Adding new life hack is simple, users define image, title and add 5 tags that can be associated with this life hack.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![](https://github.com/gopolar/Hack-My-Life/blob/master/Assets/2.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Via mobile application users can recognise object with use of AI and application will find available life hack that matches that object.
 
-## Learn More
+![](https://github.com/gopolar/Hack-My-Life/blob/master/Assets/3.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
